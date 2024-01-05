@@ -508,7 +508,7 @@ int search(Thread *thread, PVariation *pv, int alpha, int beta, int depth, bool 
     if (   !PvNode
         && !inCheck
         && !ns->excluded
-        &&  eval >= beta
+        &&  eval >= (beta - 70 * improving)
         && (ns-1)->move != NULL_MOVE
         &&  depth >= NullMovePruningDepth
         &&  boardHasNonPawnMaterial(board, board->turn)
